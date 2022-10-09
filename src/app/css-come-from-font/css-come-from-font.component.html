@@ -1,3 +1,11 @@
 <div>
-	<input type="file" #fontFile>
+	<div>
+		<input #fontFile type="file" accept="font/ttf, font/woff" (change)="onFileSelected($event)">
+	</div>
+	<div>
+		<button (click)="convertToCssFromFontFile($event)">convert</button>
+	</div>
+	<div>
+		<textarea #resultCss cols="30" rows="10"></textarea>
+	</div>
 </div>
