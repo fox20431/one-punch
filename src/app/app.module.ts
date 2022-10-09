@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { IndexComponent } from './index/index.component';
 import { FontSizeUnitComponent } from './font-size-unit/font-size-unit.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
 	{ path: '', component: IndexComponent },
@@ -25,10 +26,11 @@ const appRoutes: Routes = [
 		CssComeFromFontComponent,
 		HeaderComponent,
 		FooterComponent,
-  IndexComponent,
-  FontSizeUnitComponent,
+		IndexComponent,
+		FontSizeUnitComponent,
 	],
 	imports: [
+		FormsModule,
 		BrowserModule,
 		RouterModule.forRoot(
 			appRoutes,

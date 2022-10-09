@@ -9,7 +9,18 @@ export class FontSizeUnitComponent implements OnInit, AfterViewInit, AfterViewCh
 
 	constructor() { }
 
-	defaultFontSizeInPixel?: number
+	defaultFontSizeInPixel: number = 0
+	targetFontSizeInPixel?: number
+	fontSizeInEm: number = 0
+
+	calcEm = () => {
+		console.log(this.targetFontSizeInPixel);
+		if (this.targetFontSizeInPixel) {
+			this.fontSizeInEm = this.targetFontSizeInPixel / this.defaultFontSizeInPixel
+		} else {
+			alert("请输入目标字体大小！")
+		}
+	}
 
 	// @ViewChild('referenceFont')
 	// To make sure that it can be got before `ngAfterViewInit()`, please add `{ static: true }` in `@ViewChild()`.
@@ -17,12 +28,10 @@ export class FontSizeUnitComponent implements OnInit, AfterViewInit, AfterViewCh
 	referenceFont!: ElementRef<HTMLSpanElement>;
 
 	ngOnInit(): void {
-		// target computed style
 		let targetComputedStyle = getComputedStyle(this.referenceFont.nativeElement, undefined)
 		let targetFontSize = targetComputedStyle.fontSize
-		let targetFontSizeNumberInPixel = parseInt(targetFontSize)
-		this.defaultFontSizeInPixel = targetFontSizeNumberInPixel
-		console.log(this.referenceFont.nativeElement.style);
+		let targetFontSizeInPixel = parseInt(targetFontSize)
+		this.defaultFontSizeInPixel = targetFontSizeInPixel
 	}
 
 	// Notes that: the variable can't be changed in&after the life funtion.
