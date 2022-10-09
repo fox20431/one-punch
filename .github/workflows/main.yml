@@ -1,0 +1,47 @@
+name: Angular CI
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  prepare_env:
+    strategy:
+      matrix:
+        node-version: [16.x]
+    name: Prepare Environment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Cache Node Modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+      
+      - name: Install npm package
+        run: |
+          npm i
+      - name: Build Application
+        run: |
+          npm run build
+      - name: Generate Private key
+        run: |
+          echo '${{ secrets.SSH_PRIVATE_KEY }}' > ./id_rsa
+          chmod 0600 ./id_rsa
+      - name: Transfer
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ./id_rsa root@warrior.hihusky.com "rm -rf /var/www/one_punch/*"
+          scp -o StrictHostKeyChecking=no -i ./id_rsa -r ./dist/one-punch/* root@warrior.hihusky.com:/var/www/one_punch/
+      - name: Restart Server Service
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ./id_rsa root@warrior.hihusky.com "systemctl restart nginx"
