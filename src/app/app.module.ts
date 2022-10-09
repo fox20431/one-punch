@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -11,13 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { IndexComponent } from './index/index.component';
 import { FontSizeUnitComponent } from './font-size-unit/font-size-unit.component';
 import { FormsModule } from '@angular/forms';
-
-const appRoutes: Routes = [
-	{ path: '', component: IndexComponent },
-	{ path: 'json-beautify', component: JsonBeautifyComponent },
-	{ path: 'css-come-from-font', component: CssComeFromFontComponent },
-	{ path: 'font-size-unit', component: FontSizeUnitComponent }
-]
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
 	declarations: [
@@ -32,10 +25,7 @@ const appRoutes: Routes = [
 	imports: [
 		FormsModule,
 		BrowserModule,
-		RouterModule.forRoot(
-			appRoutes,
-			// { enableTracing: true }
-		)
+		AppRoutingModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
