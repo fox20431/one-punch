@@ -1,0 +1,52 @@
+.footer {
+	--footer-background: #f5f5f7;
+	--footer-border-color: #d2d2d7;
+	--footer-text-color: #6e6e73;
+	--footer-link-color: #424245;
+	--footer-directory-title-color: #1d1d1f;
+	--footer-directory-title-color-hover: #000;
+
+	background-color: #f5f5f7;
+	overflow: hidden;
+	color: #6e6e73;
+	font-size: 12px;
+	font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	height: 56px;
+
+	.about {
+		margin-top: 8px;
+		.title {
+			color: #1d1d1f;
+			font-weight: 600;
+		}
+
+		.content {
+			margin: 12px;
+
+			.qa-module {
+				.qa-item {
+					margin-top: 8px;
+				}
+			}
+		}
+
+		.contact-me {
+			display: flex;
+			flex-direction: row;
+			list-style-type: none !important;
+
+			a {
+				&:hover {
+					text-decoration: underline;
+				}
+
+				color: #424245;
+				text-decoration: none;
+			}
+
+			.name {
+				margin-left: 12px;
+			}
+		}
+	}
+}

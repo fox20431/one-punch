@@ -6,26 +6,37 @@ import { AppComponent } from './app.component';
 
 import { CssComeFromFontComponent } from './css-come-from-font/css-come-from-font.component';
 import { JsonBeautifyComponent } from './json-beautify/json-beautify.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { IndexComponent } from './index/index.component';
+import { FontSizeUnitComponent } from './font-size-unit/font-size-unit.component';
 
 const appRoutes: Routes = [
-  { path: 'json-beautify', component: JsonBeautifyComponent },
-  { path: 'css-come-from-font', component: CssComeFromFontComponent }
+	{ path: '', component: IndexComponent },
+	{ path: 'json-beautify', component: JsonBeautifyComponent },
+	{ path: 'css-come-from-font', component: CssComeFromFontComponent },
+	{ path: 'font-size-unit', component: FontSizeUnitComponent }
 ]
 
 @NgModule({
-  declarations: [
+	declarations: [
+		AppComponent,
 		JsonBeautifyComponent,
 		CssComeFromFontComponent,
-  ],
-  imports: [
-    BrowserModule,
+		HeaderComponent,
+		FooterComponent,
+  IndexComponent,
+  FontSizeUnitComponent,
+	],
+	imports: [
+		BrowserModule,
 		RouterModule.forRoot(
 			appRoutes,
-			{enableTracing: true}
+			{ enableTracing: true }
 		)
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 
 export class AppModule { }
