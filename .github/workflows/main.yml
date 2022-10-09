@@ -2,7 +2,7 @@ name: Angular CI
 on:
   push:
     branches:
-      - "main"
+      - "prod"
 
 jobs:
   prepare_env:
