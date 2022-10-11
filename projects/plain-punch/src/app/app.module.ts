@@ -11,6 +11,7 @@ import { IndexComponent } from './index/index.component';
 import { FontSizeUnitComponent } from './font-size-unit/font-size-unit.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { JapaneseSyllabaryComponent } from './japanese-syllabary/japanese-syllabary.component';
 
 @NgModule({
 	declarations: [
@@ -21,6 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
 		FooterComponent,
 		IndexComponent,
 		FontSizeUnitComponent,
+  JapaneseSyllabaryComponent,
 	],
 	imports: [
 		FormsModule,
