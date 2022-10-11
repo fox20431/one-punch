@@ -40,8 +40,8 @@ jobs:
           chmod 0600 ./id_rsa
       - name: Transfer
         run: |
-          ssh -o StrictHostKeyChecking=no -i ./id_rsa root@warrior.hihusky.com "rm -rf /var/www/one_punch/plain-punch/*"
-          scp -o StrictHostKeyChecking=no -i ./id_rsa -r ./dist/plain-punch/* root@warrior.hihusky.com:/var/www/one_punch/plain-punch/
+          ssh -o StrictHostKeyChecking=no -i ./id_rsa root@warrior.hihusky.com "rm -rf /var/www/one-punch/plain-punch/*"
+          scp -o StrictHostKeyChecking=no -i ./id_rsa -r ./dist/plain-punch/* root@warrior.hihusky.com:/var/www/one-punch/plain-punch/
       - name: Restart Server Service
         run: |
           ssh -o StrictHostKeyChecking=no -i ./id_rsa root@warrior.hihusky.com "systemctl restart nginx"
