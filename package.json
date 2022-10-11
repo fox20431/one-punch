@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "plain-punch:start": "ng serve plain-punch",
-    "plain-punch:build": "ng build plain-pucnh --base-href ./"
+    "plain-punch:build": "ng build plain-punch --base-href ./"
   },
   "private": true,
   "dependencies": {
