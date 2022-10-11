@@ -33,7 +33,7 @@ jobs:
           npm i
       - name: Build Application
         run: |
-          npm run build
+          npm run plain-punch:build
       - name: Generate Private key
         run: |
           echo '${{ secrets.SSH_PRIVATE_KEY }}' > ./id_rsa
