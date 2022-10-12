@@ -12,6 +12,7 @@ import { FontSizeUnitComponent } from './font-size-unit/font-size-unit.component
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { JapaneseSyllabaryComponent } from './japanese-syllabary/japanese-syllabary.component';
+import { RgbValueConversionComponent } from './rgb-value-conversion/rgb-value-conversion.component';
 
 @NgModule({
 	declarations: [
@@ -23,6 +24,7 @@ import { JapaneseSyllabaryComponent } from './japanese-syllabary/japanese-syllab
 		IndexComponent,
 		FontSizeUnitComponent,
   JapaneseSyllabaryComponent,
+  RgbValueConversionComponent,
 	],
 	imports: [
 		FormsModule,

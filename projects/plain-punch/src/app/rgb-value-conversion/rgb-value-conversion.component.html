@@ -1,0 +1,45 @@
+<div>
+	<div class="input">
+		<div>
+			<span>输入十进制RGB值</span>
+		</div>
+		<div>
+			<div>
+				<span>红色：</span>
+				<input #redValueElement type="text" [(ngModel)]="decimalRedValue">
+			</div>
+			<div>
+				<span>绿色：</span>
+				<input #greenValueElement type="text" [(ngModel)]="decimalGreenValue">
+			</div>
+			<div>
+				<span>蓝色：</span>
+				<input #blueValueElement type="text" [(ngModel)]="decimalBlueValue">
+			</div>
+		</div>
+	</div>
+	<div>
+		<button (click)="convert($event)">convert</button>
+	</div>
+	<div class="output">
+		<div>
+			<span>
+				输出十六进制RGB值
+			</span>
+		</div>
+		<div>
+			<div>
+				<span>红色：</span>
+				<span>{{ hexRedValue }}</span>
+			</div>
+			<div>
+				<span>绿色：</span>
+				<span>{{ hexGreenValue }}</span>
+			</div>
+			<div>
+				<span>蓝色：</span>
+				<span>{{ hexBlueValue }}</span>
+			</div>
+		</div>
+	</div>
+</div>
