@@ -9,6 +9,10 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
+	toBlog() {
+		console.log("hello");
+	}
+
   ngOnInit(): void {
   }
 
