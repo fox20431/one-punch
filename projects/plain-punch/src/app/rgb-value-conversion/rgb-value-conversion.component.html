@@ -6,22 +6,20 @@
 		<div>
 			<div>
 				<span>红色：</span>
-				<input #redValueElement type="text" [(ngModel)]="decimalRedValue">
+				<input id="redValueInput" type="text" (input)="convert($event)">
 			</div>
 			<div>
 				<span>绿色：</span>
-				<input #greenValueElement type="text" [(ngModel)]="decimalGreenValue">
+				<input id="greenValueInput" type="text" (input)="convert($event)">
 			</div>
 			<div>
 				<span>蓝色：</span>
-				<input #blueValueElement type="text" [(ngModel)]="decimalBlueValue">
+				<input id="blueValueInput" type="text" (input)="convert($event)">
 			</div>
 		</div>
 	</div>
-	<div>
-		<button (click)="convert($event)">convert</button>
-	</div>
 	<div class="output">
+		<div id="color-display" #colorDisplay></div>
 		<div>
 			<span>
 				输出十六进制RGB值
@@ -30,15 +28,15 @@
 		<div>
 			<div>
 				<span>红色：</span>
-				<span>{{ hexRedValue }}</span>
+				<span>{{ hexRedValueString }}</span>
 			</div>
 			<div>
 				<span>绿色：</span>
-				<span>{{ hexGreenValue }}</span>
+				<span>{{ hexGreenValueString }}</span>
 			</div>
 			<div>
 				<span>蓝色：</span>
-				<span>{{ hexBlueValue }}</span>
+				<span>{{ hexBlueValueString }}</span>
 			</div>
 		</div>
 	</div>

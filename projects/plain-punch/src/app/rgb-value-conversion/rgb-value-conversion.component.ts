@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, ViewChild } from '@angular/core';
 
 @Component({
 	selector: 'app-rgb-value-conversion',
@@ -9,28 +9,41 @@ export class RgbValueConversionComponent implements OnInit {
 
 	constructor() { }
 
-	@ViewChild('redValueElement', { static: true })
-	redValueElement!: ElementRef<HTMLInputElement>
-	@ViewChild('greenValueElement', { static: true })
-	greenValueElement!: ElementRef<HTMLInputElement>
-	@ViewChild('blueValueElement', { static: true })
-	blueValueElement!: ElementRef<HTMLInputElement>
+	@ViewChild('colorDisplay', { static: true })
+	colorDisplay!: ElementRef<HTMLDivElement>
 
-	decimalRedValue?: string;
-	decimalGreenValue?: string;
-	decimalBlueValue?: string;
-
-	hexRedValue?: string
-	hexGreenValue?: string
-	hexBlueValue?: string
+	hexRedValueString = ""
+	hexGreenValueString = ""
+	hexBlueValueString = ""
 
 	convert(e: Event) {
-		// nullish coalescing: <A> ?? <B>
-		this.hexRedValue = parseInt(this.decimalRedValue ?? "").toString(16)
-		this.hexGreenValue = parseInt(this.decimalGreenValue ?? "").toString(16)
-		this.hexBlueValue = parseInt(this.decimalBlueValue ?? "").toString(16)
-		// this.hexGreenValue = this.hexBlueValue ?? parseInt(this.hexBlueValue).toString(16)
-		// this.hexBlueValue = this.hexGreenValue ?? parseInt(this.hexGreenValue).toString(16)
+		let colorValueInput = (e.target as HTMLInputElement)
+		let rawPrimaryColorValue = colorValueInput.value ? parseInt(colorValueInput.value) : 0
+		let primaryColorValue = rawPrimaryColorValue === NaN ? 0 : rawPrimaryColorValue
+
+		let rawHexPrimaryColorValueString = primaryColorValue.toString(16)
+		let hexPrimaryColorValueString = rawHexPrimaryColorValueString.length < 2 ? `0${rawHexPrimaryColorValueString}` : rawHexPrimaryColorValueString
+
+		switch (colorValueInput.id) {
+			case "redValueInput":
+				this.hexRedValueString = hexPrimaryColorValueString;
+				break;
+			case "greenValueInput":
+				this.hexGreenValueString = hexPrimaryColorValueString;
+				break;
+			case "blueValueInput":
+				this.hexBlueValueString = hexPrimaryColorValueString;
+				break;
+		}
+		let color = `#
+			${this.hexRedValueString == "undefined" ? "00" : this.hexRedValueString}
+			${this.hexGreenValueString == "undefined" ? "00" : this.hexGreenValueString}
+			${this.hexBlueValueString == "undefined" ? "00" : this.hexBlueValueString}
+			`
+			.replace(/(\s+|\n|\r)+/g, "")
+		console.log(color);
+
+		this.colorDisplay.nativeElement.style.backgroundColor = color
 	}
 
 	ngOnInit(): void {
