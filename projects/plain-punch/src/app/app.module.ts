@@ -15,24 +15,24 @@ import { JapaneseSyllabaryComponent } from './japanese-syllabary/japanese-syllab
 import { RgbValueConversionComponent } from './rgb-value-conversion/rgb-value-conversion.component';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		JsonBeautifyComponent,
-		CssComeFromFontComponent,
-		HeaderComponent,
-		FooterComponent,
-		IndexComponent,
-		FontSizeUnitComponent,
-  JapaneseSyllabaryComponent,
-  RgbValueConversionComponent,
-	],
-	imports: [
-		FormsModule,
-		BrowserModule,
-		AppRoutingModule
-	],
-	providers: [],
-	bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        JsonBeautifyComponent,
+        CssComeFromFontComponent,
+        HeaderComponent,
+        FooterComponent,
+        IndexComponent,
+        FontSizeUnitComponent,
+        JapaneseSyllabaryComponent,
+        RgbValueConversionComponent,
+    ],
+    imports: [
+        FormsModule,
+        BrowserModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 
 export class AppModule { }
