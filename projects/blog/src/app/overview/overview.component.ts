@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { PagedPosts, Post } from '../post';
 
 @Component({
-  selector: 'app-content',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  selector: 'app-overview',
+  templateUrl: './overview.component.html',
+  styleUrls: ['./overview.component.scss']
 })
-export class ContentComponent implements OnInit {
+export class OverviewComponent implements OnInit {
 
     constructor(private http: HttpClient) {}
 
