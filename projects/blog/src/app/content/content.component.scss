@@ -3,17 +3,15 @@
     align-items: center;
     justify-content: center;
     .content {
-        // padding-block: 20px;
         padding-inline: 60px;
         background-color: #fff;
-        height: 100vh;
         width: 960px;
         .post {
             margin-top: 20px;
 
             .title {
                 font-family: serif;
-                font-size: 64px;
+                font-size: 48px;
             }
             .body {
                 padding-inline: 20px;
@@ -21,6 +19,12 @@
                 font-size: 24px;
                 color: #808080;
             }
+        }
+        .post:first-child {
+            margin-top: 40px;
+        }
+        .post:last-child {
+            margin-bottom: 40px;
         }
     }
 }
