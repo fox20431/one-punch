@@ -14,7 +14,7 @@ export class OverviewComponent implements OnInit {
     posts: Array<Post> = undefined
 
     ngOnInit(): void {
-        let pagedPostsObs = this.http.get("/posts?page=0&size=10")
+        let pagedPostsObs = this.http.get("/api/posts?page=0&size=10&overview=true")
         pagedPostsObs.subscribe((data: PagedPosts) => {this.posts = data.content})
     }
     
